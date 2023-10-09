@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from common.utils import get_db
+from core.utils import get_db
 from reservations.schemas import Reservation as pydantic_reservation
 from models import Reservation
 from fastapi import APIRouter
