@@ -4,20 +4,6 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 import models
 from users import schemas
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-
-#oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-
-# async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
-#     user = fake_decode_token(token)
-#     if not user:
-#         raise HTTPException(
-#             status_code=status.HTTP_401_UNAUTHORIZED,
-#             detail="Invalid authentication credentials",
-#             headers={"WWW-Authenticate": "Bearer"},
-#         )
-#     return user
 
 
 def add_user(db: Session, user: schemas.User):
@@ -40,7 +26,7 @@ def del_user(db: Session, id: int):
     return {user_name + "is deleted"}
 
 
-def get_user_by_email(db: Session, email: str):
+def get_user_by_email(db: Session, email: str) -> models.User:
     return db.query(models.User).filter(models.User.email == email).first()
 
 
