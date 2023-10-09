@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-from database import engine
+from database.config import engine
 from api.v1.user import api_router as user_router
 from api.v1.room import api_router as room_router
 from api.v1.reservation import api_router as reservation_router
 
-import models
+from database import models
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()

@@ -1,4 +1,4 @@
-from database import SessionLocal
+from database.config import SessionLocal
 
 # Dependency
 def get_db():

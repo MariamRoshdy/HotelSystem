@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from models import Reservation
-from reservations.schemas import Reservation as Res
+from database.models import Reservation
+from schemas.reservation import Reservation as Res
 
 
 def add_reservation(db: Session, reservation: Res, user_id: int):
